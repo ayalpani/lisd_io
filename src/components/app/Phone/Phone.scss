@@ -1,0 +1,65 @@
+.Phone {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  height: 700px;
+  width: 360px;
+  background-color: black;
+  padding: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  .Screen {
+    display: flex;
+    flex: 1;
+    position: relative;
+    flex-direction: column;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .StatusBar {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.75);
+    filter: drop-shadow(2px);
+  }
+
+  .Controls {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 10px 0;
+
+    .HomeButton {
+      width: 50px;
+      height: 50px;
+      background: white;
+      opacity: 0.4;
+      border-radius: 100px;
+
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.RelaxMessage {
+  display: flex;
+  color: white;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.ScreenContent {
+  display: flex;
+  flex: 1;
+}
