@@ -1,6 +1,8 @@
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { isMobileBrowser } from "../../../libs/isMobileBrowser";
+import { SimpleAnimation } from "../../lib/Spacer/SimpleAnimation/SimpleAnimation";
 import About from "../About/About";
 import LisdFrame from "../LisdFrame/LisdFrame";
 import Phone from "../Phone/Phone";
@@ -8,9 +10,14 @@ import "./App.scss";
 
 function App() {
   const [isPhoneOn, setIsPhoneOn] = useState(true);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+
+  if (isMobileBrowser) {
+    return <LisdFrame />;
+  }
 
   return (
-    <div className="App">
+    <div className="App" onClick={() => setIsUserInteracting(false)}>
       <div className="PhoneWrapper">
         <Phone isPhoneOn={isPhoneOn} setIsPhoneOn={setIsPhoneOn}>
           {isPhoneOn && <LisdFrame />}
@@ -18,7 +25,11 @@ function App() {
         </Phone>
 
         <div className="Popup PopupHeader">
-          <div className="animate__animated animate__bounceIn animate__delay-1s">
+          <SimpleAnimation
+            doShow={!isUserInteracting}
+            showAnimation="bounceIn"
+            hideAnimation="zoomOut"
+          >
             <div className="PopupContent">
               <div className="PopupContentTitle">
                 <span>Only For You</span>
@@ -28,21 +39,40 @@ function App() {
                 &amp; <strong>organize</strong> your personal life.
               </div>
             </div>
-          </div>
+          </SimpleAnimation>
         </div>
 
         <div className="Popup PopupFooter">
-          <div className="animate__animated animate__rotateIn animate__delay-2s">
+          <SimpleAnimation
+            doShow={!isUserInteracting}
+            showAnimation="rotateIn"
+            hideAnimation="fadeOut"
+          >
             <div className="PopupContent">
               <span>
                 <a href="https://github.com/ayalpani/lisd5/">
-                  <strong>getlisd</strong> @github
+                  <strong>Get Lisd</strong> @github
                 </a>
               </span>
               <FontAwesomeIcon icon={faLongArrowAltRight} />
             </div>
-          </div>
+          </SimpleAnimation>
         </div>
+
+        {!isUserInteracting && (
+          <>
+            <div
+              className="SecretCurtain"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsUserInteracting(true);
+              }}
+            />
+
+            <div className="Popup PopupFinger">👈</div>
+          </>
+        )}
       </div>
     </div>
   );

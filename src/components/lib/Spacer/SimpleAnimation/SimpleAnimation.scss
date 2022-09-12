@@ -1,0 +1,17 @@
+.NamedAnimation,
+.AtomicAnimation {
+  display: flex;
+}
+
+.SimpleAnimation {
+  display: flex;
+
+  pointer-events: none;
+  &.doShow {
+    pointer-events: all;
+  }
+
+  &:not(.animate__animated) {
+    visibility: hidden;
+  }
+}

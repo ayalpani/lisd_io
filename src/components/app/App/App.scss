@@ -66,7 +66,7 @@ h2 {
     background: yellow;
 
     transform: scale(1);
-    animation: explode 1s;
+    animation: explode 0.5s;
     animation-delay: 2s;
   }
 }
@@ -127,6 +127,28 @@ h2 {
   transition: opacity 0.2s;
 }
 
+.PopupFinger {
+  pointer-events: none;
+  font-size: 50px;
+  position: absolute;
+  left: auto;
+  right: 0;
+  bottom: 200px;
+  transform: translateX(0);
+
+  animation-delay: 5s;
+  animation: animatePopupFinger 3s infinite;
+}
+
+.SecretCurtain {
+  cursor: pointer;
+  position: absolute;
+  inset: 0;
+  background-color: aqua;
+  border-radius: 20px;
+  opacity: 0.24;
+}
+
 @keyframes explode {
   0% {
     transform: scale(1);
@@ -145,5 +167,15 @@ h2 {
   // do something in this width range.
   .Popup {
     opacity: 1;
+  }
+}
+
+@keyframes animatePopupFinger {
+  0%,
+  100% {
+    transform: translateX(-50px) scale(2.5) rotate(45deg);
+  }
+  50% {
+    transform: translateX(0) scale(3) rotate(60deg);
   }
 }
