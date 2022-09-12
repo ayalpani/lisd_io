@@ -28,10 +28,10 @@ function Phone({
     <div className={classes.Phone}>
       <div className="Screen">
         <StatusBar />
-
         <div className="ScreenContent">{children}</div>
       </div>
-      <div className="Controls">
+
+      <div className="PhoneControls">
         <div className="HomeButton" onClick={() => setIsPhoneOn(!isPhoneOn)} />
       </div>
     </div>

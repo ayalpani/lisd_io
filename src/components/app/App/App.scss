@@ -4,10 +4,15 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+  align-items: center;
+  justify-content: center;
+
+  &.isMobileBrowser {
+    align-items: unset;
+    justify-content: unset;
+  }
 }
 
 .Homepage {
@@ -44,7 +49,7 @@ h2 {
 }
 
 .PopupHeader {
-  bottom: calc(100% - 10px);
+  bottom: calc(100% - 20px);
 }
 
 .PopupFooter {
@@ -63,8 +68,7 @@ h2 {
   strong {
     display: inline-flex;
     color: black;
-    background: yellow;
-
+    background: rgba(white, 0.5);
     transform: scale(1);
     animation: explode 0.5s;
     animation-delay: 2s;
@@ -72,10 +76,13 @@ h2 {
 }
 
 .PopupHeader .PopupContent {
-  border-radius: 3% 97% 4% 96% / 85% 6% 94% 15%;
-  color: black;
+  border-radius: 3% 97% 4% 96%/85% 6% 94% 15%;
+  border-radius: 91% 9% 92% 8% / 8% 84% 16% 92%;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+  color: #000;
+  -webkit-transform: rotate(-10deg);
   transform: rotate(-10deg);
-  box-shadow: 0 0 10px rgba(black, 0.5);
+  background: aquamarine;
 
   .PopupContentTitle {
     font-size: 50px;
@@ -96,27 +103,6 @@ h2 {
   align-items: center;
   gap: 10px;
   white-space: nowrap;
-}
-
-.PopupAppStores {
-  font-size: 20px;
-
-  position: absolute;
-  bottom: -60px;
-  left: 0;
-  right: 0;
-}
-
-.PopupOpenSource {
-  left: 400px;
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-  background: white;
-  border-radius: 10px;
-  padding: 30px;
-
-  position: absolute;
 }
 
 .Popup {
@@ -144,7 +130,7 @@ h2 {
   cursor: pointer;
   position: absolute;
   inset: 0;
-  background-color: aqua;
+  background-color: aquamarine;
   border-radius: 20px;
   opacity: 0.24;
 }
@@ -163,7 +149,36 @@ h2 {
   }
 }
 
-@media only screen and (min-width: 360px) {
+@media only screen and (max-width: 400px) {
+  // do something in this width range.
+  .App {
+    align-items: unset;
+    justify-content: unset;
+  }
+
+  .PhoneWrapper {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .Phone {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    border-radius: 0;
+
+    .Screen {
+      border-radius: 0;
+    }
+  }
+
+  .StatusBar,
+  .PhoneControls {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 400px) {
   // do something in this width range.
   .Popup {
     opacity: 1;
