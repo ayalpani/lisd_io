@@ -29,7 +29,8 @@ export type $NamedAnimations =
   | "rotateIn"
   | "rotateOut"
   | "zoomIn"
-  | "zoomOut";
+  | "zoomOut"
+  | "lightSpeedInLeft";
 
 export function AtomicAnimation({
   opacity,
@@ -165,7 +166,11 @@ type $SimpleAnimationProps = {
   doHideOnFirstRender?: boolean;
   flex?: number;
   showAnimation?: $NamedAnimations;
+  showAnimationDelay?: number;
+  showAnimationDuration?: number;
   hideAnimation?: $NamedAnimations;
+  hideAnimationDelay?: number;
+  hideAnimationDuration?: number;
   children: ReactNode;
 };
 
@@ -174,7 +179,11 @@ function SimpleAnimation({
   doHideOnFirstRender = false,
   flex,
   showAnimation = "fadeIn",
+  showAnimationDelay,
+  showAnimationDuration,
   hideAnimation = "fadeOut",
+  hideAnimationDelay,
+  hideAnimationDuration,
   children,
 }: $SimpleAnimationProps) {
   const isFirstRender = useIsFirstRender();
@@ -194,8 +203,19 @@ function SimpleAnimation({
     }),
   };
 
+  const animationDelay = doShow ? showAnimationDelay : hideAnimationDelay;
+  const animationDuration = doShow
+    ? showAnimationDuration
+    : hideAnimationDuration;
+
   const styles = StyleSheets.create({
-    SimpleAnimation: { flex },
+    SimpleAnimation: {
+      flex,
+      animationDelay: animationDelay ? animationDelay + "ms" : undefined,
+      animationDuration: animationDuration
+        ? animationDuration + "ms"
+        : undefined,
+    },
   });
 
   return (
