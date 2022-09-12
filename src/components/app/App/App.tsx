@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import About from "../About/About";
 import LisdFrame from "../LisdFrame/LisdFrame";
 import Phone from "../Phone/Phone";
@@ -16,7 +16,7 @@ function App() {
         </Phone>
 
         <div className="Popup PopupTitle animate__animated animate__bounceIn animate__delay-1s">
-          Lisd - For You
+          Lisd - Only For You
         </div>
       </div>
     </div>
