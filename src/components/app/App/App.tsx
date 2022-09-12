@@ -49,7 +49,7 @@ function App() {
         <div className="Popup PopupFooter">
           <SimpleAnimation
             doShow={!isUserInteracting}
-            showAnimation=""
+            showAnimation="lightSpeedInLeft"
             showAnimationDelay={1000}
             hideAnimation="fadeOut"
           >
