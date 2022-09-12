@@ -49,7 +49,8 @@ function App() {
         <div className="Popup PopupFooter">
           <SimpleAnimation
             doShow={!isUserInteracting}
-            showAnimation="rotateIn"
+            showAnimation=""
+            showAnimationDelay={1000}
             hideAnimation="fadeOut"
           >
             <div className="PopupContent">
