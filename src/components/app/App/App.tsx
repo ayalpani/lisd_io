@@ -13,7 +13,11 @@ function App() {
   const [isUserInteracting, setIsUserInteracting] = useState(false);
 
   if (isMobileBrowser) {
-    return <LisdFrame />;
+    return (
+      <div className="App isMobileBrowser">
+        <LisdFrame />
+      </div>
+    );
   }
 
   return (
