@@ -1,0 +1,9 @@
+.Position {
+  display: flex;
+  will-change: transform, opacity;
+  // transition: transform var(--ANIMATIONS_DURATION) ease-in-out,
+  //   opacity var(--ANIMATIONS_DURATION) ease-in-out;
+
+  transition: opacity var(--ANIMATIONS_DURATION) ease-in-out,
+    transform var(--ANIMATIONS_DURATION) ease-in-out;
+}

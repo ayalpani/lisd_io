@@ -43,7 +43,7 @@ h2 {
   color: rgba(black, 0.5);
 }
 
-.PhoneWrapper {
+.DeviceWrapper {
   display: flex;
   position: relative;
 }
@@ -83,6 +83,8 @@ h2 {
   -webkit-transform: rotate(-10deg);
   transform: rotate(-10deg);
   background: aquamarine;
+  border: 10px solid rgba(white, 0.5);
+  width: 300px;
 
   .PopupContentTitle {
     font-size: 50px;
@@ -94,6 +96,12 @@ h2 {
     font-size: 20px;
     line-height: 1.5em;
     color: rgba(black, 0.5);
+  }
+}
+
+.PopupHeader {
+  .LogoWord {
+    --OUTLINE-WIDTH: 5px;
   }
 }
 
@@ -120,9 +128,10 @@ h2 {
   left: auto;
   right: 0;
   bottom: 200px;
-  transform: translateX(0);
 
-  animation-delay: 5s;
+  //
+  transform: translateX(-50px) scale(2.5) rotate(45deg);
+  animation-delay: 2s !important;
   animation: animatePopupFinger 3s infinite;
 }
 
@@ -130,9 +139,9 @@ h2 {
   cursor: pointer;
   position: absolute;
   inset: 0;
-  background-color: aquamarine;
+  background-color: yellow;
   border-radius: 20px;
-  opacity: 0.24;
+  opacity: 0.25;
 }
 
 @keyframes explode {
@@ -141,7 +150,7 @@ h2 {
   }
 
   25% {
-    transform: scale(1.5);
+    transform: scale(1.25);
   }
 
   100% {
@@ -156,12 +165,12 @@ h2 {
     justify-content: unset;
   }
 
-  .PhoneWrapper {
+  .DeviceWrapper {
     flex: 1;
     overflow: hidden;
   }
 
-  .Phone {
+  .Device {
     width: 100vw;
     height: 100vh;
     padding: 0;
@@ -173,7 +182,7 @@ h2 {
   }
 
   .StatusBar,
-  .PhoneControls {
+  .DeviceControls {
     display: none !important;
   }
 }

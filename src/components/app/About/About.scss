@@ -6,7 +6,7 @@
 
   padding: 30px;
 
-  background: rgba(white, 0.25);
+  background: rgba(white, 0.0625);
 
   align-items: center;
   justify-content: center;
@@ -20,5 +20,10 @@
 
   a {
     color: white;
+    text-decoration: underline;
+  }
+
+  .LogoWord {
+    --OUTLINE-WIDTH: 15px;
   }
 }

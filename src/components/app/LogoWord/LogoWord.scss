@@ -1,0 +1,17 @@
+.LogoWord {
+  display: inline-flex;
+  margin: 0 5px;
+
+  --OUTLINE-OPACITY: 1;
+  --OUTLINE-BASECOLOR: 255, 255, 255;
+  --OUTLINE-COLOR: rgba(var(--OUTLINE-BASECOLOR), var(--OUTLINE-OPACITY));
+
+  filter: drop-shadow(var(--OUTLINE-WIDTH) 0 0 var(--OUTLINE-COLOR))
+    drop-shadow(0 var(--OUTLINE-WIDTH) 0 var(--OUTLINE-COLOR))
+    drop-shadow(calc(var(--OUTLINE-WIDTH) * -1) 0 0 var(--OUTLINE-COLOR))
+    drop-shadow(0 calc(var(--OUTLINE-WIDTH) * -1) 0 var(--OUTLINE-COLOR));
+}
+
+.LogoLetter {
+  padding: 5px;
+}

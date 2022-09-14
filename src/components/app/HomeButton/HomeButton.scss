@@ -1,0 +1,19 @@
+.HomeButton {
+  opacity: 0.25;
+
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 100px;
+  pointer-events: all;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.3;
+  }
+
+  &.isDeviceOn {
+    opacity: 0.5;
+  }
+}

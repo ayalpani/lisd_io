@@ -1,4 +1,4 @@
-.Phone {
+.Device {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -9,6 +9,8 @@
   padding: 10px;
   border-radius: 20px;
   overflow: hidden;
+
+  outline: 10px solid rgba(pink, 1);
 
   .Screen {
     display: flex;
@@ -26,32 +28,18 @@
     display: flex;
     flex-direction: row;
     padding: 5px 10px;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(0, 0, 0, 0.75);
     filter: drop-shadow(2px);
   }
 
-  .PhoneControls {
+  .DeviceControls {
     display: flex;
     justify-content: center;
     padding: 20px 0 10px 0;
-
-    .HomeButton {
-      width: 50px;
-      height: 50px;
-      background: white;
-      opacity: 0.4;
-      border-radius: 100px;
-
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.5;
-      }
-    }
   }
 }
 
-.RelaxMessage {
+.AboutScreen {
   display: flex;
   color: white;
   flex: 1;
@@ -62,4 +50,5 @@
 .ScreenContent {
   display: flex;
   flex: 1;
+  position: relative;
 }
