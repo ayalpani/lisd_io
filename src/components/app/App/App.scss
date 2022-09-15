@@ -49,13 +49,13 @@ h2 {
 }
 
 .PopupHeader {
-  bottom: calc(100% - 20px);
+  bottom: calc(100% + 10px);
 }
 
 .PopupFooter {
   font-size: 30px;
   color: blue;
-  bottom: -100px;
+  bottom: -90px;
 }
 
 .PopupContent {
@@ -63,7 +63,6 @@ h2 {
   flex-direction: column;
   gap: 10px;
   padding: 20px;
-  background: rgba(white, 0.85);
 
   strong {
     display: inline-flex;
@@ -76,15 +75,8 @@ h2 {
 }
 
 .PopupHeader .PopupContent {
-  border-radius: 3% 97% 4% 96%/85% 6% 94% 15%;
-  border-radius: 91% 9% 92% 8% / 8% 84% 16% 92%;
-  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
   color: #000;
-  -webkit-transform: rotate(-10deg);
-  transform: rotate(-10deg);
-  background: aquamarine;
-  border: 10px solid rgba(white, 0.5);
-  width: 300px;
+  width: 400px;
 
   .PopupContentTitle {
     font-size: 50px;
