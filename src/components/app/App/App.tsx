@@ -2,7 +2,7 @@ import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { isMobileBrowser } from "../../../libs/isMobileBrowser";
-import { SimpleAnimation } from "../../lib/Spacer/SimpleAnimation/SimpleAnimation";
+import { SimpleAnimation } from "../../lib/SimpleAnimation/SimpleAnimation";
 import About from "../About/About";
 import Device from "../Device/Device";
 import LisdFrame from "../LisdFrame/LisdFrame";

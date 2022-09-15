@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import { Position } from "../../lib/Spacer/Position/Position";
-import { SimpleAnimation } from "../../lib/Spacer/SimpleAnimation/SimpleAnimation";
+import { Position } from "../../lib/Position/Position";
+import { SimpleAnimation } from "../../lib/SimpleAnimation/SimpleAnimation";
 import "./HomeButton.scss";
 
 function HomeButton({

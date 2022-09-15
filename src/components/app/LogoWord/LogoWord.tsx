@@ -1,5 +1,5 @@
 import { ANIMATIONS_DURATION } from "../../../config/constants";
-import { SimpleAnimation } from "../../lib/Spacer/SimpleAnimation/SimpleAnimation";
+import { SimpleAnimation } from "../../lib/SimpleAnimation/SimpleAnimation";
 import "./LogoWord.scss";
 
 function LogoLetter({
