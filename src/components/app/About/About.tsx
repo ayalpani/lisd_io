@@ -14,12 +14,6 @@ function About() {
       <h1>
         <LogoWord />
       </h1>
-      <span>
-        By <a href="mailto:arash@yalpani.de">Arash</a>
-      </span>
-      <span>
-        Available on <a href="https://github.com/ayalpani/lisd5">GitHub</a>
-      </span>
     </div>
   );
 }
