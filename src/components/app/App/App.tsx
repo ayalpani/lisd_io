@@ -1,5 +1,6 @@
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ANIMATIONS_DURATION } from "../../../config/constants";
 import { isMobileBrowser } from "../../../libs/isMobileBrowser";
 import {
   actionSetIsDeviceOn,
@@ -42,45 +43,43 @@ function App() {
           {!isDeviceOn && <About />}
         </Device>
 
-        {!isUserInteracting && (
-          <>
-            <div className="Popup PopupHeader">
-              <SimpleAnimation
-                doShow={!isUserInteracting}
-                showAnimation="bounceIn"
-                hideAnimation="zoomOut"
-              >
-                <div className="PopupContent">
-                  <div className="PopupContentTitle">
-                    <LogoWord />
-                  </div>
-                  <div className="PopupContentMore">
-                    <strong>memorize</strong> &amp; <strong>organize</strong>{" "}
-                    your personal life.
-                  </div>
+        <SimpleAnimation doShow={isUserInteracting}>
+          <div className="Popup PopupHeader">
+            <SimpleAnimation
+              doShow={!isUserInteracting}
+              showAnimation="bounceIn"
+              hideAnimation="fadeOut"
+            >
+              <div className="PopupContent">
+                <div className="PopupContentTitle">
+                  {!isUserInteracting && <LogoWord />}
                 </div>
-              </SimpleAnimation>
-            </div>
+                <div className="PopupContentMore">
+                  <strong>memorize</strong> &amp; <strong>organize</strong> your
+                  personal life.
+                </div>
+              </div>
+            </SimpleAnimation>
+          </div>
 
-            <div className="Popup PopupFooter">
-              <SimpleAnimation
-                doShow={!isUserInteracting}
-                showAnimation="lightSpeedInLeft"
-                showAnimationDelay={1000}
-                hideAnimation="fadeOut"
-              >
-                <div className="PopupContent">
-                  <span>
-                    <a href="https://github.com/ayalpani/lisd5/">
-                      <strong>Get Lisd</strong> @github
-                    </a>
-                  </span>
-                  <FontAwesomeIcon icon={faLongArrowAltRight} />
-                </div>
-              </SimpleAnimation>
-            </div>
-          </>
-        )}
+          <div className="Popup PopupFooter">
+            <SimpleAnimation
+              doShow={!isUserInteracting}
+              showAnimation="lightSpeedInLeft"
+              showAnimationDelay={ANIMATIONS_DURATION / 2}
+              hideAnimation="fadeOut"
+            >
+              <div className="PopupContent">
+                <span>
+                  <a href="https://github.com/ayalpani/lisd5/">
+                    <strong>Get Lisd</strong> @github
+                  </a>
+                </span>
+                <FontAwesomeIcon icon={faLongArrowAltRight} />
+              </div>
+            </SimpleAnimation>
+          </div>
+        </SimpleAnimation>
 
         {!isUserInteracting && <div className="Popup PopupFinger">👈</div>}
         {/* PhoneWrapper */}
