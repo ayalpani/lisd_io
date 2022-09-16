@@ -1,7 +1,14 @@
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import { isMobileBrowser } from "../../../libs/isMobileBrowser";
+import {
+  actionSetIsDeviceOn,
+  useSubscribeIsDeviceOn,
+} from "../../../state/isDeviceOn";
+import {
+  actionSetIsUserInteracting,
+  useSubscribeIsUserInteracting,
+} from "../../../state/isUserInteracting.state";
 import { SimpleAnimation } from "../../lib/SimpleAnimation/SimpleAnimation";
 import About from "../About/About";
 import Device from "../Device/Device";
@@ -10,8 +17,8 @@ import LogoWord from "../LogoWord/LogoWord";
 import "./App.scss";
 
 function App() {
-  const [isDeviceOn, setIsDeviceOn] = useState(true);
-  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const isDeviceOn = useSubscribeIsDeviceOn();
+  const isUserInteracting = useSubscribeIsUserInteracting();
 
   if (isMobileBrowser) {
     return (
@@ -22,19 +29,20 @@ function App() {
   }
 
   return (
-    <div className="App" onClick={() => setIsUserInteracting(false)}>
+    <div
+      className="App"
+      onClick={() => {
+        actionSetIsDeviceOn(true);
+        actionSetIsUserInteracting(false);
+      }}
+    >
       <div className="DeviceWrapper">
-        <Device
-          isDeviceOn={isDeviceOn}
-          setIsDeviceOn={setIsDeviceOn}
-          isUserInteracting={isUserInteracting}
-          setIsUserInteracting={setIsUserInteracting}
-        >
+        <Device>
           {isDeviceOn && <LisdFrame />}
           {!isDeviceOn && <About />}
         </Device>
 
-        {isDeviceOn && (
+        {!isUserInteracting && (
           <>
             <div className="Popup PopupHeader">
               <SimpleAnimation
@@ -74,12 +82,16 @@ function App() {
           </>
         )}
 
-        {isDeviceOn && !isUserInteracting && (
-          <div className="Popup PopupFinger">👈</div>
-        )}
+        {!isUserInteracting && <div className="Popup PopupFinger">👈</div>}
         {/* PhoneWrapper */}
       </div>
       {/* App */}
+
+      {/* <br />
+      isUserInteracting:{isUserInteracting ? "yes" : "no"}
+      <br />
+      <br />
+      isDeviceOn:{isDeviceOn ? "yes" : "no"} */}
     </div>
   );
 }

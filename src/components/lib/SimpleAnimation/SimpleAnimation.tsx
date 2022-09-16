@@ -1,3 +1,5 @@
+// TODO break this up into multiple Atomic*Animation children
+
 import classNames from "classnames";
 import { ReactNode } from "react";
 import { ANIMATIONS_DURATION } from "../../../config/constants";
@@ -9,6 +11,7 @@ type $TransformOrigin = string | number;
 
 export type $NamedAnimations =
   | "bounceIn"
+  | "bounceInDown"
   | "bounceInUp"
   | "bounceOut"
   | "bounceOutUp"
@@ -162,6 +165,7 @@ export function RotateAnimation({
 }
 
 type $SimpleAnimationProps = {
+  className?: string;
   doShow?: boolean;
   doHideOnFirstRender?: boolean;
   flex?: number;
@@ -175,13 +179,14 @@ type $SimpleAnimationProps = {
 };
 
 function SimpleAnimation({
+  className = "",
   doShow = true,
   doHideOnFirstRender = false,
   flex,
-  showAnimation = "fadeIn",
+  showAnimation,
   showAnimationDelay,
   showAnimationDuration,
-  hideAnimation = "fadeOut",
+  hideAnimation,
   hideAnimationDelay,
   hideAnimationDuration,
   children,
@@ -195,11 +200,13 @@ function SimpleAnimation({
   })();
 
   const classes = {
-    SimpleAnimation: classNames("SimpleAnimation", {
+    SimpleAnimation: classNames({
+      [className]: className !== undefined && className !== "",
+      SimpleAnimation: true,
       doShow,
       animate__animated: doAnimate,
-      ["animate__" + showAnimation]: doShow,
-      ["animate__" + hideAnimation]: !doShow,
+      ["animate__" + showAnimation]: doShow && showAnimation,
+      ["animate__" + hideAnimation]: !doShow && hideAnimation,
     }),
   };
 

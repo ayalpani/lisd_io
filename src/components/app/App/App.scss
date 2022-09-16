@@ -127,15 +127,6 @@ h2 {
   animation: animatePopupFinger 3s infinite;
 }
 
-.SecretCurtain {
-  cursor: pointer;
-  position: absolute;
-  inset: 0;
-  background-color: yellow;
-  border-radius: 20px;
-  opacity: 0.25;
-}
-
 @keyframes explode {
   0% {
     transform: scale(1);
