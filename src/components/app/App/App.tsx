@@ -1,6 +1,3 @@
-import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ANIMATIONS_DURATION } from "../../../config/constants";
 import { isMobileBrowser } from "../../../libs/isMobileBrowser";
 import {
   actionSetIsDeviceOn,
