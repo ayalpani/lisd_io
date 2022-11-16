@@ -8,9 +8,18 @@
   background-color: black;
   padding: 10px;
   border-radius: 20px;
-  overflow: hidden;
 
-  outline: 10px solid rgba(pink, 1);
+  // https://medium.com/@jeandesravines/use-border-radius-and-outline-simultaneously-on-safari-14ce92889e1f
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    border: 10px solid pink;
+    border-radius: 30px;
+  }
 
   .Screen {
     display: flex;

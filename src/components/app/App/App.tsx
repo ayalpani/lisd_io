@@ -62,7 +62,7 @@ function App() {
             </SimpleAnimation>
           </div>
 
-          <div className="Popup PopupFooter">
+          {/* <div className="Popup PopupFooter">
             <SimpleAnimation
               doShow={!isUserInteracting}
               showAnimation="lightSpeedInLeft"
@@ -78,7 +78,7 @@ function App() {
                 <FontAwesomeIcon icon={faLongArrowAltRight} />
               </div>
             </SimpleAnimation>
-          </div>
+          </div> */}
         </SimpleAnimation>
 
         {!isUserInteracting && <div className="Popup PopupFinger">👈</div>}
